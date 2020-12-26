@@ -1,0 +1,17 @@
+.home {
+    text-align: center;
+    margin: 5% 5%;
+}
+
+.home img {
+    width: 70vh;
+    height: auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}

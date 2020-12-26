@@ -1,0 +1,12 @@
+.topBarTitle {
+    display: flex !important;
+    font-size: 3px !important;
+    margin: auto !important;
+    align-items: center !important;
+    font-weight: 800 !important;
+    color: maroon !important;
+}
+
+.topBarTitle:hover {
+    cursor: pointer;
+}
