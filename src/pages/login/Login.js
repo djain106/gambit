@@ -1,17 +1,22 @@
 import React, { useState } from 'react'
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import './Login.css'
+// import axios from '../../axios.js'
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     function validateFormFields() {
-        return true;
+        return (username.length >= 5 && password.length >= 8);
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
+        // async function sendData() {
+        //     const req = await axios.get('/users');
+
+        // }
     }
 
     return (
