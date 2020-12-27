@@ -5,13 +5,13 @@ import Home from './home/Home'
 import Register from './registration/Register'
 import './NavSwitch.css'
 
-function NavSwitch() {
+function NavSwitch(props) {
     return (
         <div className="navSwitch">
             <Router>
                 <Switch>
                     <Route path="/login">
-                        <Login />
+                        <Login onLogin={props.onLogin} />
                     </Route>
                     <Route path="/register">
                         <Register />
