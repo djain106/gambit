@@ -2,8 +2,9 @@ import axios from '../../services/axios.js';
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, FormControl, FormGroup, FormLabel } from 'react-bootstrap';
 import './Register.css';
-import bcrypt from 'bcryptjs';
 import { useHistory } from 'react-router-dom';
+import { useUser } from '../contexts/user-context';
+import { useAuth } from '../contexts/auth-context'
 
 function Registration() {
     const [username, setUsername] = useState("");
@@ -11,44 +12,33 @@ function Registration() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [alertUsername, setAlertUsername] = useState("");
     const [alertPassword, setAlertPassword] = useState("");
-    const [usernames, setUsernames] = useState([]);
-    const saltRounds = 10;
     const history = useHistory();
+    const { setUser } = useUser();
+    const { setAuthCookie } = useAuth();
 
     useEffect(() => {
-        async function fetchData() {
-            const req = await axios.get('/users');
-            const usernameSet = new Set();
-            req.data.forEach((item) => {
-                usernameSet.add(item.username);
-            });
-            setUsernames(usernameSet);
-        }
-        fetchData();
+        setAlertUsername("");
         return () => { }
     }, [])
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const salt = bcrypt.genSaltSync(saltRounds);
-        await axios.post('/users', {
+        await axios.post('/auth/register', {
             username: username,
-            password: bcrypt.hashSync(password, salt),
+            password: password,
+        }).then(function (res) {
+            const token = res.data.token;
+            setAuthCookie(token);
+            setUser(res.data.user);
+            history.push("/home");
+        }).catch((err) => {
+            console.error(err)
         });
-        history.push("/login");
     }
 
     function handleUsernameChange(event) {
         const currentUsername = event.target.value
         setUsername(currentUsername);
-        if (currentUsername.length < 5) {
-            setAlertUsername("Username is too short.")
-        } else {
-            setAlertUsername("");
-            if (usernames.has(currentUsername)) {
-                setAlertUsername("Username already exists.")
-            }
-        }
     }
 
     function handlePasswordChange(event) {

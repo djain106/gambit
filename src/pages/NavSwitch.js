@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from './login/Login'
 import Home from './home/Home'
 import Register from './registration/Register'
-import './NavSwitch.css'
 
-function NavSwitch(props) {
+function NavRouter(props) {
     return (
         <div className="navSwitch">
             <Router>
@@ -25,4 +24,4 @@ function NavSwitch(props) {
     )
 }
 
-export default NavSwitch
+export default NavRouter

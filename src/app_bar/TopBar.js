@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './TopBar.css'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import { Button, IconButton, Toolbar } from '@material-ui/core';
-import jwt from 'jsonwebtoken'
+import { IconButton, Toolbar } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import Logo from "./gambit_logo.png";
-import { useCookies, withCookies } from 'react-cookie';
+import { useUser } from '../pages/contexts/user-context'
+import LoginLogout from './LoginLogout'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,23 +23,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function HeaderBar(props) {
+function TopBar() {
     const classes = useStyles();
-    const [cookies] = useCookies(['token']);
-    const [username, setUsername] = useState("");
-    const [balance, setBalance] = useState(0);
-
-    useEffect(() => {
-        try {
-            var verified = jwt.verify(cookies['token'], props.privateKey);
-            setUsername(verified.username);
-            setBalance(verified.balance);
-        } catch (err) {
-            setUsername("");
-            setBalance(0);
-        }
-        return () => { }
-    }, [cookies, props.privateKey])
+    const { user } = useUser();
 
     return (
         <div className={classes.root}>
@@ -55,20 +41,11 @@ function HeaderBar(props) {
                         </a>
                         <AttachMoneyIcon />
                     </div>
-                    {!(username) &&
-                        <Button href="/login" color="inherit">Login</Button>}
-                    {username &&
-                        <div>
-                            <Button href="/home" color="inherit" onClick={props.onLogout}>Logout</Button>
-                            <h2>{username}</h2>
-                            <h4>{balance}</h4>
-                        </div>}
+                    <LoginLogout user={user} />
                 </Toolbar>
             </AppBar>
         </div>
     )
 }
-
-const TopBar = withCookies(HeaderBar);
 
 export default TopBar
