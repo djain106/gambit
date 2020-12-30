@@ -11,7 +11,7 @@ instance.interceptors.request.use(function (config) {
         var re = new RegExp("AUTH-TOKEN=([^;]+)");
         var value = re.exec(document.cookie);
         const token = (value != null) ? unescape(value[1]) : null;
-        config.headers.auth_token = token
+        if (token) { config.headers.auth_token = token }
     }
     return config;
 }, function (error) {

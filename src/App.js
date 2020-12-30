@@ -24,7 +24,7 @@ function App() {
       });
     }
 
-    if (!(JSON.stringify(cookie) === '{}') && cookie['AUTH-TOKEN'].length > 0) {
+    if (!(JSON.stringify(cookie) === '{}') && cookie["AUTH-TOKEN"] && cookie['AUTH-TOKEN'] !== "") {
       getUser();
     } else {
       setUser({});
@@ -44,9 +44,11 @@ function App() {
           balance: res.data.user.balance,
         });
         setAuthCookie(token);
+        return true
       })
       .catch(function (err) {
         console.log(err);
+        return false
       });
   }
 

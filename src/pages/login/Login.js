@@ -25,11 +25,10 @@ function Login(props) {
         return () => { }
     }, [user, history])
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         setPassword("");
         props.onLogin(username, password);
-        setLoginAlert("Invalid username or password.")
     }
 
     return (
