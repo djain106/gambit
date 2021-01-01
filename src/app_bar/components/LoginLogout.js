@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Button } from '@material-ui/core';
 import { useAuth } from '../../pages/contexts/auth-context';
-import validUser from '../../pages/validUser';
+import validUser from '../../helpers/validUser';
 import { useDetectOutsideClick } from '../../helpers/useDetectOutsideClick'
 import { useUser } from '../../pages/contexts/user-context'
 import './LoginLogout.css'

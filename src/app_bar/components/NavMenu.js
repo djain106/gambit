@@ -22,13 +22,13 @@ function NavMenu() {
                         <p><b>Games</b></p>
                     </li>
                     <li>
-                        <a href="/">BlackJack</a>
+                        <a href="/blackjack">BlackJack</a>
                     </li>
                     <li>
-                        <a href="/">Roulette</a>
+                        <a href="/roulette">Roulette</a>
                     </li>
                     <li>
-                        <a href="/">Slots</a>
+                        <a href="/slots">Slots</a>
                     </li>
                 </ul>
             </nav>

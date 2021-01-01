@@ -24,14 +24,10 @@ const useStyles = makeStyles((theme) => ({
 function TopBar() {
     const classes = useStyles();
     const { user } = useUser();
-
     return (
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon />
-                    </IconButton> */}
                     <NavMenu />
                     <div className="topBarTitle">
                         <AttachMoneyIcon />

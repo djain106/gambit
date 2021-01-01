@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const instance = axios.create({
-    baseURL: process.env.REACT_APP_DATABASE_URL,
+    baseURL: process.env.REACT_APP_SERVER_URL,
 });
 
 instance.interceptors.request.use(function (config) {

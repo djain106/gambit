@@ -4,7 +4,7 @@ import './Login.css';
 import { Alert } from 'react-bootstrap';
 import { useUser } from '../contexts/user-context'
 import { useHistory } from 'react-router-dom';
-import validUser from '../validUser';
+import validUser from '../../helpers/validUser';
 
 function Login(props) {
     const [username, setUsername] = useState("");

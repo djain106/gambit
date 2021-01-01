@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from './login/Login'
 import Home from './home/Home'
 import Register from './registration/Register'
+import BlackJack from './blackjack/Blackjack'
 
 function NavRouter(props) {
     return (
@@ -14,6 +15,9 @@ function NavRouter(props) {
                     </Route>
                     <Route path="/register">
                         <Register />
+                    </Route>
+                    <Route path="/blackjack">
+                        <BlackJack />
                     </Route>
                     <Route path="/">
                         <Home />

@@ -5,7 +5,7 @@ import './Register.css';
 import { useHistory } from 'react-router-dom';
 import { useUser } from '../contexts/user-context';
 import { useAuth } from '../contexts/auth-context'
-import validUser from '../validUser.js';
+import validUser from '../../helpers/validUser';
 
 function Registration() {
     const [username, setUsername] = useState("");
@@ -14,6 +14,7 @@ function Registration() {
     const history = useHistory();
     const { user, setUser } = useUser();
     const { setAuthCookie } = useAuth();
+    const [usernameAlert, setUsernameAlert] = useState(false);
 
     useEffect(() => {
         if (validUser(user)) {
@@ -21,6 +22,11 @@ function Registration() {
         }
         return () => { }
     }, [user, history])
+
+    useEffect(() => {
+        setUsernameAlert(false);
+        return () => { }
+    }, [username])
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -33,6 +39,9 @@ function Registration() {
             setUser(res.data.user);
             history.push("/home");
         }).catch((err) => {
+            setUsernameAlert(true);
+            setPassword("");
+            setConfirmPassword("");
             console.error(err)
         });
     }
@@ -40,7 +49,8 @@ function Registration() {
     function validateFields() {
         return password.length >= 8
             && username.length >= 5
-            && confirmPassword.length >= 8;
+            && confirmPassword.length >= 8
+            && password === confirmPassword;
     }
 
     return (
@@ -52,6 +62,10 @@ function Registration() {
                         Username is too short. (Minimum 5 characters.)
                     </Alert>
                 }
+                {usernameAlert &&
+                    <Alert variant="primary">
+                        Username is already taken.
+                    </Alert>}
                 <FormGroup controlId="username">
                     <FormLabel>Username</FormLabel>
                     <FormControl
