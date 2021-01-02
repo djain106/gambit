@@ -32,13 +32,16 @@ function Blackjack() {
 
     // Functions
     useEffect(() => {
-        if (betAmount < 0) {
-            setBetAmount(-1 * Math.trunc(betAmount))
-        } else if (betAmount > user.balance && gamestate === Gamestate.BETTING) {
-            setBetAmount(Math.trunc(user.balance));
-        }
+        function fixBet() {
+            if (betAmount < 0) {
+                setBetAmount(-1 * Math.trunc(betAmount))
+            } else if (betAmount > user.balance && gamestate === Gamestate.BETTING) {
+                setBetAmount(Math.trunc(user.balance));
+            }
+        };
+        fixBet()
         return () => { }
-    }, [betAmount, user])
+    }, [betAmount])
 
     function pickCards(count) {
         const cards = [];
@@ -136,27 +139,22 @@ function Blackjack() {
             setWinner(': Player Wins!');
             const updatedUser = await updateBalance(2 * betAmount);
             setUser(updatedUser);
-            console.log(updatedUser);
         }
-        console.log(value);
-        console.log(playerValue);
         setGamestate(Gamestate.DONE);
     }
 
-    function reset(changeBet) {
+    async function reset(changeBet) {
         setDeck(data);
         setDealerValue(0);
         setPlayerValue(0);
         setPlayerCards([]);
         setDealerCards([]);
         setWinner("");
+        setGamestate(Gamestate.BETTING);
         if (changeBet || user.balance === 0) {
-            setGamestate(Gamestate.BETTING);
             setBetAmount(0);
         } else {
-            setGamestate(Gamestate.USER);
             setBetAmount(Math.min(user.balance, betAmount));
-            dealCards();
         }
     }
 
