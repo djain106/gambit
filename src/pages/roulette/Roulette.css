@@ -11,6 +11,7 @@
     border-radius: 20px;
     padding: 30px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
 }
 
 .table {
@@ -27,7 +28,10 @@
     width: 462.5px;
     overflow: hidden;
     border: 10px solid #cfb103;
+    pointer-events: none;
     z-index: 1;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .slice {
@@ -94,7 +98,6 @@
 .controls {
     display: flex;
     justify-content: center;
-    z-index: 10;
 }
 
 .btn {

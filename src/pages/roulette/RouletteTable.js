@@ -4,7 +4,8 @@ import './Roulette.css'
 function RouletteTable(
 ) {
     return (
-        <div>
+        <div className="table">
+            <button>Test</button>
         </div>
     )
 }

@@ -14,6 +14,7 @@ function RouletteWheel(props) {
     `;
     return (
         <div>
+            <div className="pointer"></div>
             <div className={`circle${spinning ? " spinning" : ""}`}>
                 {props.numbers.map((num, index) =>
                     <div key={index} className="slice" style={{
@@ -28,8 +29,8 @@ function RouletteWheel(props) {
                 <div className="innerCircle"><p className="gambit">Gambit</p></div>
             </div>
             <div className="controls">
-                <Button disabled={winningIndex !== undefined} onClick={props.spin} onAnimationEnd={props.endSpin}>Spin</Button>
-                <Button disabled={winningIndex === undefined} onClick={props.reset}>Reset</Button>
+                <Button hidden={winningIndex !== undefined} onClick={props.spin} onAnimationEnd={props.endSpin}>Spin</Button>
+                <Button hidden={winningIndex === undefined} onClick={props.reset}>Reset</Button>
             </div>
         </div>
     )
