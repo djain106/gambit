@@ -13,6 +13,12 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.table {
+    background: green;
+    margin: 0;
+    padding: 0;
+}
+
 .circle {
     border-radius: 50%;
     height: 462.5px;
@@ -21,6 +27,7 @@
     width: 462.5px;
     overflow: hidden;
     border: 10px solid #cfb103;
+    z-index: 1;
 }
 
 .slice {
@@ -70,10 +77,11 @@
     position: absolute;
     width: 0;
     height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #cfb103;
-    transform: translate(200px, -5px);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #dab903;
+    transform: translate(215px, 0px);
+    z-index: 2;
 }
 
 .spinning {
