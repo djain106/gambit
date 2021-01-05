@@ -6,7 +6,7 @@ const share = 360 / WHEEL_NUMBERS.length;
 
 function RouletteWheel(props) {
     return (
-        <div className="circle">
+        <div className={`circle${props.spinning ? " spinning" : ""}`} >
             {WHEEL_NUMBERS.map((num, index) =>
                 <div key={index} className="slice" style={{
                     transform: `rotate(${((index * share) - (share / 2))}deg) skewY(${(share - 90)}deg)`
