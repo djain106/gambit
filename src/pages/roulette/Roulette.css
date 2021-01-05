@@ -14,9 +14,9 @@
 }
 
 .table {
-    background: green;
+    background: rgb(1, 95, 1);
     margin: 0;
-    padding: 0;
+    padding: 15px;
 }
 
 .circle {
@@ -79,14 +79,32 @@
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 30px solid #dab903;
+    border-top: 30px solid #e6c403;
     transform: translate(215px, 0px);
     z-index: 2;
 }
 
 .spinning {
     animation-duration: 5s;
-    animation-timing-function: cubic-bezier(.46, -0.16, .0, 1.13);
+    animation-timing-function: cubic-bezier(.46, -0.16, .0, 1.11);
     animation-name: spinning;
     animation-fill-mode: forwards;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.btn {
+    margin: 5px;
+}
+
+.gambit {
+    position: absolute;
+    color: white;
+    transform: translate(40px, 105px);
+    font-size: 70px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

@@ -15,6 +15,9 @@ function Roulette() {
     }
 
     function endSpin() {
+    }
+
+    function reset() {
         setSpinning(false);
         setSelected(undefined);
     }
@@ -29,7 +32,8 @@ function Roulette() {
                     winner={selectedIndex}
                     numbers={WHEEL_NUMBERS}
                     share={share}
-                    spinning={spinning} />
+                    spinning={spinning}
+                    reset={reset} />
                 <RouletteTable />
             </div>
         </div>
