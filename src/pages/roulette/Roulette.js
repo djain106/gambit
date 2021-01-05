@@ -25,7 +25,6 @@ function Roulette() {
     return (
         <div className="border">
             <div className="table">
-                <div className="pointer"></div>
                 <RouletteWheel
                     spin={spin}
                     endSpin={endSpin}
