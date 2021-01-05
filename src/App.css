@@ -5,5 +5,11 @@
 
 .topBar {
     width: 100vw;
-    position: fixed;
+    position: absolute;
+    z-index: 100;
+}
+
+.navRouter {
+    position: relative;
+    z-index: 99;
 }

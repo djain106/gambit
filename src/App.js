@@ -76,7 +76,7 @@ function App() {
           <div className="topBar">
             <TopBar onLogout={appLogout} />
           </div>
-          <NavRouter onLogin={appLogin} />
+          <NavRouter className="navRouter" onLogin={appLogin} />
         </AuthContext.Provider>
       </UserContext.Provider>
     </div>

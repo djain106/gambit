@@ -11,8 +11,7 @@ function RouletteWheel(props) {
                 <div key={index} className="slice" style={{
                     transform: `rotate(${((index * share) - (share / 2))}deg) skewY(${(share - 90)}deg)`
                 }}>
-                    <p className="text"
-                        style={{ '--share': `${share}deg` }}>
+                    <p className="text">
                         {num}
                     </p>
                 </div>
