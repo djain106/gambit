@@ -46,10 +46,14 @@
     background-color: green;
 }
 
-.slice text {
+.text {
     position: absolute;
+    bottom: 16vh;
+    left: 5px;
+    padding: 0px;
     color: white;
-    left: 30px;
+    transform-origin: bottom left;
+    transform: skewY(calc(-9.72972972972973deg + 90deg)) rotate(calc(9.72972972972973deg / 2));
 }
 
 .innerCircle {
