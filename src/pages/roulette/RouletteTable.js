@@ -1,14 +1,10 @@
 import React from 'react'
 import './Roulette.css'
 
-function RouletteTable({
-    spin = () => { },
-    endSpin = () => { } }
+function RouletteTable(
 ) {
     return (
         <div>
-            <button onClick={spin}>Spin</button>
-            <button onClick={endSpin}>Reset</button>
         </div>
     )
 }

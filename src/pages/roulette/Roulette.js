@@ -15,7 +15,6 @@ function Roulette() {
     }
 
     function endSpin() {
-        console.log(selectedIndex)
         setSpinning(false);
         setSelected(undefined);
     }
@@ -24,8 +23,14 @@ function Roulette() {
         <div className="border">
             <div className="table">
                 <div className="pointer"></div>
-                <RouletteWheel winner={selectedIndex} numbers={WHEEL_NUMBERS} share={share} spinning={spinning} />
-                <RouletteTable spin={spin} endSpin={endSpin} />
+                <RouletteWheel
+                    spin={spin}
+                    endSpin={endSpin}
+                    winner={selectedIndex}
+                    numbers={WHEEL_NUMBERS}
+                    share={share}
+                    spinning={spinning} />
+                <RouletteTable />
             </div>
         </div>
     )
