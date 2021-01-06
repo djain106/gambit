@@ -9,7 +9,7 @@ function RouletteTable(props) {
     for (let i = 0; i < 3; i++) {
         const innerButtons = []
         for (let j = 0; j < 12; j++) {
-            const numIndex = (i * 10) + j;
+            const numIndex = (i * 12) + j;
             innerButtons.push(<button
                 key={numbers[numIndex].num}
                 onClick={() => props.addBet(numbers[numIndex].num.toString())}
