@@ -9,7 +9,7 @@ I built this application as a personal project to learn and develop in the MERN 
 MERN:
 - M: MongoDB
 - E: Express.js
-- R: React.js
+- R: ReactJS
 - N: Node.js
 
 ### What I Learned:
