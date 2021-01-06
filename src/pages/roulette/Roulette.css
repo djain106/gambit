@@ -129,9 +129,9 @@
 .gambit {
     position: absolute;
     color: white;
-    transform: translate(40px, 105px);
-    font-size: 70px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transform: translate(35px, 105px);
+    font-size: 80px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .zero {
