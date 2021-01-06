@@ -8,13 +8,15 @@ function RouletteWheel(props) {
     let startSpin = `
     @keyframes spinning {
         from { transform: rotate(0); }
-        to { transform: rotate(${(winningIndex * share) + 360}deg); }
+        to { transform: rotate(${(-winningIndex * share) + 720}deg); }
     }
     `;
     return (
         <div>
             <div hidden={!spinning} className="pointer"></div>
-            <div hidden={!spinning} className={`circle${spinning ? " spinning" : ""}`}>
+            <div hidden={!spinning}
+                className={`circle${spinning ? " spinning" : ""}`}
+                onAnimationEnd={props.endSpin}>
                 {props.numbers.map((n, index) =>
                     <div key={index} className={`slice ${n.color}`} style={{
                         transform: `rotate(${((index * share) - (share / 2))}deg) skewY(${(share - 90)}deg)`

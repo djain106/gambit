@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import './Roulette.css'
 import { Button } from '@material-ui/core'; //  
+import { Alert } from 'react-bootstrap';
 
 const useStyles = makeStyles({
     table: {
@@ -21,6 +22,9 @@ function BetsTable(props) {
 
     return (
         <div className="betsTable">
+            <Alert hidden={props.netBet === undefined} variant="info">
+                Total Earnings: {props.netBet}
+            </Alert>
             <TableContainer hidden={props.betList.length === 0}
                 component={Paper}>
                 <Table className={classes.table} aria-label="simple table">
@@ -45,9 +49,8 @@ function BetsTable(props) {
 
             <div className="controls">
                 <Button hidden={props.winner !== undefined || props.betList.length === 0}
-                    onClick={props.spin}
-                    onAnimationEnd={props.endSpin}>Spin</Button>
-                <Button hidden={props.winner === undefined} onClick={props.reset}>Reset</Button>
+                    onClick={props.spin}>Spin</Button>
+                <Button hidden={props.winner === undefined || props.netBet === undefined} onClick={props.reset}>Reset</Button>
             </div>
         </div>
     );

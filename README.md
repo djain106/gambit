@@ -21,6 +21,7 @@ MERN:
 ### Future Improvements:
 - Clean up the CSS files into one global file.
 - Create more universal React components.
+- Take a mobile first approach to design.
 
 ## Installation
 
