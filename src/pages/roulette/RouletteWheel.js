@@ -16,12 +16,12 @@ function RouletteWheel(props) {
         <div>
             <div className="pointer"></div>
             <div className={`circle${spinning ? " spinning" : ""}`}>
-                {props.numbers.map((num, index) =>
-                    <div key={index} className="slice" style={{
+                {props.numbers.map((n, index) =>
+                    <div key={index} className={`slice ${n.color}`} style={{
                         transform: `rotate(${((index * share) - (share / 2))}deg) skewY(${(share - 90)}deg)`
                     }}>
-                        <p className="text">
-                            {num}
+                        <p className={`text ${(n.num % 10 === n.num) ? "singleDigit" : "multiDigit"}`}>
+                            {n.num}
                         </p>
                     </div>
                 )}

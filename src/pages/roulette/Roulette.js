@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import RouletteWheel from './RouletteWheel'
 import RouletteTable from './RouletteTable';
+import numbers from './numbers.json'
 
-const WHEEL_NUMBERS = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26];
+const WHEEL_NUMBERS = numbers.numbers;
 const share = 360 / WHEEL_NUMBERS.length;
 
 function Roulette() {
     const [spinning, setSpinning] = useState(false);
     const [selectedIndex, setSelected] = useState();
+    const [betAmount, setBetAmount] = useState(0);
+    let betPicks = new Set();
 
     function spin() {
         setSelected(Math.floor(Math.random() * Math.floor(WHEEL_NUMBERS.length)));
@@ -22,6 +25,18 @@ function Roulette() {
         setSelected(undefined);
     }
 
+    function addBetNum(num) {
+        if (betAmount < 1) {
+            return
+        }
+        betPicks.add(num);
+    }
+
+    function changeBetAmount(e) {
+        const value = e.target.value;
+        setBetAmount(Math.abs(Math.trunc(value)))
+    }
+
     return (
         <div className="border">
             <div className="table">
@@ -33,7 +48,14 @@ function Roulette() {
                     share={share}
                     spinning={spinning}
                     reset={reset} />
-                <RouletteTable />
+                <RouletteTable
+                    numbers={WHEEL_NUMBERS}
+                    spinning={spinning}
+                />
+            </div>
+            <div className="betting">
+                <label style={{ marginRight: "10px" }}><b>Chip Amount</b></label>
+                <input type="number" min="0" onChange={changeBetAmount} value={(betAmount === 0) ? '' : betAmount} />
             </div>
         </div>
     )

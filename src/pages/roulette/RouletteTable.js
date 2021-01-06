@@ -1,14 +1,19 @@
 import React from 'react'
 import './Roulette.css'
 
-function RouletteTable(
-) {
-    let num = 1;
+function RouletteTable(props) {
+    let numbers = [...props.numbers];
+    numbers.sort((a, b) => (a.num > b.num) ? 1 : -1);
+    numbers.splice(0, 1);
+    console.log([...Array(5)])
     return (
         <div className="betTable">
             <div>
-                <button className="zero green">0</button>
-                <div className="section">
+                <button disabled={props.spinning} className={`zero ${props.numbers[0].color}`}>{props.numbers[0].num}</button>
+                {
+
+                }
+                {/* <div className="section">
                     <button className="red">1</button>
                     <button className="black">2</button>
                     <button className="red">3</button>
@@ -69,7 +74,7 @@ function RouletteTable(
                     <button style={{ backgroundColor: "black" }}></button>
                     <button><span>ODD</span></button>
                     <button><span>19-36</span></button>
-                </div>
+                </div> */}
             </div>
         </div>
     )

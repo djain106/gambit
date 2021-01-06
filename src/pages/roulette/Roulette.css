@@ -45,26 +45,35 @@
     border: none;
 }
 
-.slice:nth-child(even) {
-    background-color: black;
+/* Background Colors */
+.green {
+    background-color: green;
 }
 
-.slice:nth-child(odd) {
+.red {
     background-color: red;
 }
 
-.slice:nth-child(1) {
-    background-color: green;
+.black {
+    background-color: black;
 }
 
 .text {
     position: absolute;
-    bottom: 148px;
-    left: 5px;
     padding: 0px;
     color: white;
     transform-origin: bottom left;
     transform: skewY(calc(-9.72972972972973deg + 90deg)) rotate(calc(9.72972972972973deg / 2));
+}
+
+.singleDigit {
+    bottom: 118px;
+    left: 10px;
+}
+
+.multiDigit {
+    bottom: 147px;
+    left: 5px;
 }
 
 .innerCircle {
@@ -139,9 +148,6 @@
     color: white;
 }
 
-.green {
-    background-color: green;
-}
 
 .extraButtons {
     display: flex;
@@ -172,14 +178,6 @@
     flex-direction: column;
 }
 
-.red {
-    background-color: red;
-}
-
-.black {
-    background-color: black;
-}
-
 .edgeButtons button {
     width: 50px;
     height: calc(107px/2);
@@ -190,4 +188,9 @@
 
 button:hover {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+.betting {
+    display: flex;
+    justify-content: center;
 }
