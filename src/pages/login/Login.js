@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, FormLabel, Alert } from "react-bootstrap";
 import './Login.css';
-import { Alert } from 'react-bootstrap';
 import { useUser } from '../contexts/user-context'
 import { useHistory } from 'react-router-dom';
 import validUser from '../../helpers/validUser';
