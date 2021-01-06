@@ -11,7 +11,7 @@ function Roulette() {
     const [spinning, setSpinning] = useState(false);
     const [selectedIndex, setSelected] = useState();
     const [betAmount, setBetAmount] = useState(0);
-    let betPicks = new Set();
+    const [betList, setBetList] = useState([])
 
     function spin() {
         setSelected(Math.floor(Math.random() * Math.floor(WHEEL_NUMBERS.length)));
@@ -24,11 +24,28 @@ function Roulette() {
     function reset() {
         setSpinning(false);
         setSelected(undefined);
+        setBetList([]);
     }
 
-    function addBetNum(num) {
-        console.log(num);
-
+    function addBet(nums) {
+        if (betAmount === 0) {
+            return;
+        }
+        var added = false;
+        var bets = [...betList];
+        for (var i = 0; i < bets.length; i++) {
+            if (bets[i]["n"] === nums.toString()) {
+                added = true;
+                bets[i]["amount"] += betAmount;
+            }
+        }
+        if (!added) {
+            bets.push({
+                n: nums.toString(),
+                amount: betAmount
+            })
+        }
+        setBetList(bets);
     }
 
     function changeBetAmount(e) {
@@ -40,22 +57,25 @@ function Roulette() {
         <div className="border">
             <div className="table">
                 <RouletteWheel
-                    spin={spin}
-                    endSpin={endSpin}
                     winner={selectedIndex}
                     numbers={WHEEL_NUMBERS}
                     share={share}
-                    spinning={spinning}
-                    reset={reset} />
+                    spinning={spinning} />
                 <RouletteTable
                     numbers={WHEEL_NUMBERS}
                     spinning={spinning}
-                    addBet={addBetNum}
+                    addBet={addBet}
                 />
-                <BetsTable />
+                <BetsTable
+                    winner={selectedIndex}
+                    spin={spin}
+                    endSpin={endSpin}
+                    reset={reset}
+                    betList={betList}
+                />
             </div>
             <div className="betting">
-                <label style={{ marginRight: "10px" }}><b>Chip Amount</b></label>
+                <label style={{ marginRight: "10px" }}><b>Bet Amount</b></label>
                 <input type="number" min="0" onChange={changeBetAmount} value={(betAmount === 0) ? '' : betAmount} />
             </div>
         </div>

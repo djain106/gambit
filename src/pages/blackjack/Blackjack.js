@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useUser } from '../contexts/user-context'
-import { useHistory } from 'react-router-dom';
 import validUser from '../../helpers/validUser';
 import Card from './Card'
 import './Blackjack.css'
@@ -31,17 +30,9 @@ function Blackjack() {
     const [winner, setWinner] = useState("");
 
     // Functions
-    useEffect(() => {
-        function fixBet() {
-            if (betAmount < 0) {
-                setBetAmount(-1 * Math.trunc(betAmount))
-            } else if (betAmount > user.balance && gamestate === Gamestate.BETTING) {
-                setBetAmount(Math.trunc(user.balance));
-            }
-        };
-        fixBet()
-        return () => { }
-    }, [betAmount])
+    function verifyBetAmount(e) {
+        setBetAmount(Math.min(Math.abs(Math.trunc(e.target.value)), user.balance))
+    }
 
     function pickCards(count) {
         const cards = [];
@@ -184,7 +175,7 @@ function Blackjack() {
                 <h4 hidden={gamestate !== Gamestate.BETTING}>Current Balance: {user.balance}</h4>
                 <div className="buttons">
                     <label><b>Bet Amount</b></label>
-                    <input type="number" min={1} max={user.balance} pattern="\d+" value={betAmount} onChange={(e) => setBetAmount(e.target.value)} disabled={gamestate !== Gamestate.BETTING} />
+                    <input type="number" min={1} max={user.balance} pattern="\d+" value={betAmount} onChange={(e) => verifyBetAmount(e)} disabled={gamestate !== Gamestate.BETTING} />
                     <Button onClick={() => dealCards()} hidden={gamestate !== Gamestate.BETTING} disabled={betAmount <= 0}>Bet</Button>
                     <Button onClick={() => hit(playerCards)} disabled={gamestate !== Gamestate.USER} hidden={gamestate !== Gamestate.USER}>Hit</Button>
                     <Button onClick={() => playDealer()} disabled={gamestate !== Gamestate.USER} hidden={gamestate !== Gamestate.USER}>Stand</Button>

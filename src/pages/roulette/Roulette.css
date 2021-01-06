@@ -32,6 +32,7 @@
     z-index: 1;
     -ms-user-select: none;
     user-select: none;
+    margin-right: 20px;
 }
 
 .slice {
@@ -46,27 +47,27 @@
 }
 
 /* Background Colors */
-.green {
+.greenN {
     background-color: green;
 }
 
-.green:hover {
+.greenN:hover {
     background-color: rgb(100, 150, 100);
 }
 
-.red {
+.redN {
     background-color: red;
 }
 
-.red:hover {
+.redN:hover {
     background-color: rgb(255, 117, 117);
 }
 
-.black {
+.blackN {
     background-color: black;
 }
 
-.black:hover {
+.blackN:hover {
     background-color: grey;
 }
 
@@ -182,5 +183,16 @@ button:focus {
 }
 
 .betsTable {
-    background-color: white;
+    margin: auto;
+}
+
+.betsTable button {
+    margin-top: 5px;
+    background-color: rgb(38, 75, 187);
+    color: white;
+    border: thin white solid;
+}
+
+.betsTable button:hover {
+    background-color: rgb(47, 93, 231);
 }

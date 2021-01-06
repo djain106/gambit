@@ -12,7 +12,7 @@ function RouletteTable(props) {
             const numIndex = (i * 10) + j;
             innerButtons.push(<button
                 key={numbers[numIndex].num}
-                onClick={() => props.addBet(numbers[numIndex].num)}
+                onClick={() => props.addBet(numbers[numIndex].num.toString())}
                 className={numbers[numIndex].color}>{numbers[numIndex].num}</button>)
         }
         items.push(<div key={i} className="section">{innerButtons}</div>)
@@ -27,10 +27,10 @@ function RouletteTable(props) {
                 {items}
             </div>
             <div className="extraButtons">
-                <button className="green">EVEN</button>
-                <button className="red">Red</button>
-                <button className="black">Black</button>
-                <button className="green">ODD</button>
+                <button onClick={() => props.addBet('EVEN')} className="greenN">EVEN</button>
+                <button onClick={() => props.addBet('RED')} className="redN">Red</button>
+                <button onClick={() => props.addBet('BLACK')} className="blackN">Black</button>
+                <button onClick={() => props.addBet('ODD')} className="greenN">ODD</button>
             </div>
         </div>
     )

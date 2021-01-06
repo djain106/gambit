@@ -1,6 +1,5 @@
 import React from 'react'
 import './Roulette.css'
-import { Button } from 'react-bootstrap'
 
 function RouletteWheel(props) {
     const share = props.share;
@@ -27,10 +26,6 @@ function RouletteWheel(props) {
                 )}
                 <style children={startSpin} />
                 <div className="innerCircle"><p className="gambit">Gambit</p></div>
-            </div>
-            <div className="controls">
-                <Button hidden={winningIndex !== undefined} onClick={props.spin} onAnimationEnd={props.endSpin}>Spin</Button>
-                <Button hidden={winningIndex === undefined} onClick={props.reset}>Reset</Button>
             </div>
         </div>
     )
