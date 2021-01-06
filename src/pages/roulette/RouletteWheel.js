@@ -14,8 +14,8 @@ function RouletteWheel(props) {
     `;
     return (
         <div>
-            <div className="pointer"></div>
-            <div className={`circle${spinning ? " spinning" : ""}`}>
+            <div hidden={!spinning} className="pointer"></div>
+            <div hidden={!spinning} className={`circle${spinning ? " spinning" : ""}`}>
                 {props.numbers.map((n, index) =>
                     <div key={index} className={`slice ${n.color}`} style={{
                         transform: `rotate(${((index * share) - (share / 2))}deg) skewY(${(share - 90)}deg)`

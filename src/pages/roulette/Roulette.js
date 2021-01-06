@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import RouletteWheel from './RouletteWheel'
+import React, { useState } from 'react';
+import RouletteWheel from './RouletteWheel';
 import RouletteTable from './RouletteTable';
-import numbers from './numbers.json'
+import numbers from './numbers.json';
+import BetsTable from './BetsTable';
 
 const WHEEL_NUMBERS = numbers.numbers;
 const share = 360 / WHEEL_NUMBERS.length;
@@ -26,10 +27,8 @@ function Roulette() {
     }
 
     function addBetNum(num) {
-        if (betAmount < 1) {
-            return
-        }
-        betPicks.add(num);
+        console.log(num);
+
     }
 
     function changeBetAmount(e) {
@@ -51,7 +50,9 @@ function Roulette() {
                 <RouletteTable
                     numbers={WHEEL_NUMBERS}
                     spinning={spinning}
+                    addBet={addBetNum}
                 />
+                <BetsTable />
             </div>
             <div className="betting">
                 <label style={{ marginRight: "10px" }}><b>Chip Amount</b></label>

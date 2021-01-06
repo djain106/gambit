@@ -50,12 +50,24 @@
     background-color: green;
 }
 
+.green:hover {
+    background-color: rgb(100, 150, 100);
+}
+
 .red {
     background-color: red;
 }
 
+.red:hover {
+    background-color: rgb(255, 117, 117);
+}
+
 .black {
     background-color: black;
+}
+
+.black:hover {
+    background-color: grey;
 }
 
 .text {
@@ -148,49 +160,27 @@
     color: white;
 }
 
-
-.extraButtons {
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.extraButtons .twelve {
-    height: 107px;
-    width: 50px;
-    border: thin white solid;
-    background-color: green;
-    color: white;
-}
-
-.twelveButtons {
-    display: flex;
-    flex-direction: column;
-}
-
-.extraButtons span {
-    display: inline-block;
-    transform: rotate(270deg);
-}
-
-.edgeButtons {
-    display: flex;
-    flex-direction: column;
-}
-
-.edgeButtons button {
-    width: 50px;
-    height: calc(107px/2);
-    border: thin white solid;
-    color: white;
-    background-color: green;
-}
-
-button:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
 .betting {
     display: flex;
     justify-content: center;
+}
+
+button:focus {
+    outline: none !important;
+}
+
+.extraButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+.extraButtons button {
+    width: 70px;
+    height: 80px;
+    border: white thin solid;
+    color: white;
+}
+
+.betsTable {
+    background-color: white;
 }
