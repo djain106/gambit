@@ -4,7 +4,7 @@ An application for users to register and play online gambling games including Bl
 
 ## Overview
 
-I built this application as a personal project to learn and develop in the MERN stack.
+I built this application as a personal project to learn and develop in the MERN stack. I used this idea in particular as it requires handling many complex parts of an application involving users and creating a fluid design for users.
 
 MERN:
 - M: MongoDB
@@ -16,12 +16,16 @@ MERN:
 - Coding applications in JavaScript.
 - Understanding of some of the modern day web technologies.
 - Creating a fullstack web application.
-- Important security practices including hashing and tokens.
+- Managing user registation/login/sign in with security. (Password hashing, authentication tokens, etc.)
 
 ### Future Improvements:
 - Clean up the CSS files into one global file.
 - Create more universal React components.
 - Take a mobile first approach to design.
+
+### Next Steps
+- Create more complex/Relevant fullstack applications
+- Learn other popular frameworks (Angular, Vue, Django)
 
 ## Installation
 
