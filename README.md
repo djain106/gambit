@@ -33,5 +33,10 @@ cd gambit
 npm install
 npm start
 ```
+## BlackJack
+<img src="./assets/BlackJack.gif">
+
+## Roulette
+<img src="./assets/Roulette.gif">
 
 (Note: Backend of this application is linked with another [github repository](https://github.com/djain106/gambit-backend))
