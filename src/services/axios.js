@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const instance = axios.create({
-    baseURL: process.env.REACT_APP_SERVER_URL,
+    baseURL: process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PRODUCTION_SERVER_URL : process.env.REACT_APP_SERVER_URL,
 });
 
 instance.interceptors.request.use(function (config) {
@@ -13,6 +13,7 @@ instance.interceptors.request.use(function (config) {
         const token = (value != null) ? unescape(value[1]) : null;
         if (token) { config.headers.auth_token = token }
     }
+    console.log(process.env.REACT_APP_PRODUCTION_SERVER_URL);
     return config;
 }, function (error) {
     return Promise.reject(error);

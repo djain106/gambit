@@ -5,6 +5,7 @@ import Home from './home/Home'
 import Register from './registration/Register'
 import BlackJack from './blackjack/Blackjack'
 import Roulette from './roulette/Roulette'
+import Slots from './slots/Slots'
 
 function NavRouter(props) {
     return (
@@ -22,6 +23,9 @@ function NavRouter(props) {
                     </Route>
                     <Route path="/roulette">
                         <Roulette />
+                    </Route>
+                    <Route path="/slots">
+                        <Slots />
                     </Route>
                     <Route path="/">
                         <Home />
