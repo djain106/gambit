@@ -2,7 +2,9 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const instance = axios.create();
+const instance = axios.create({
+    baseURL: process.env.REACT_APP_PRODUCTION_SERVER_URL
+});
 
 instance.interceptors.request.use(function (config) {
     config.baseURL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PRODUCTION_SERVER_URL : process.env.REACT_APP_SERVER_URL;
