@@ -22,7 +22,6 @@ function App() {
         username: res.data.username,
         balance: res.data.balance,
       });
-      console.log(res);
     }
 
     if (!(JSON.stringify(cookie) === '{}') && cookie["AUTH-TOKEN"] && cookie['AUTH-TOKEN'] !== "") {
