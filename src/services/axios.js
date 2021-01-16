@@ -7,7 +7,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(function (config) {
-    config.baseURL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PRODUCTION_SERVER_URL : process.env.REACT_APP_SERVER_URL;
+    config.baseURL = process.env.REACT_APP_PRODUCTION_SERVER_URL;
     console.log(config);
     if (document.cookie) {
         var re = new RegExp("AUTH-TOKEN=([^;]+)");
