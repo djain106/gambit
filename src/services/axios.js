@@ -3,11 +3,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const instance = axios.create({
-    baseURL: process.env.NODE_ENV === 'development' ? process.env.REACT_APP_PRODUCTION_SERVER_URL : process.env.REACT_APP_SERVER_URL,
+    baseURL: process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PRODUCTION_SERVER_URL : process.env.REACT_APP_SERVER_URL,
 });
 
 instance.interceptors.request.use(function (config) {
-    console.log(process.env.NODE_ENV);
     if (document.cookie) {
         var re = new RegExp("AUTH-TOKEN=([^;]+)");
         var value = re.exec(document.cookie);
