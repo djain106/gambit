@@ -7,6 +7,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(function (config) {
+    console.log(process.env.REACT_APP_PRODUCTION_SERVER_URL);
     if (document.cookie) {
         var re = new RegExp("AUTH-TOKEN=([^;]+)");
         var value = re.exec(document.cookie);
