@@ -8,7 +8,7 @@
 .slot {
     width: 75px;
     height: 75px;
-    background: linear-gradient(0.5turn, black 0% 1%, white 30% 70%, black 99% 100%);
+    background: linear-gradient(0.5turn, grey, white 30% 70%, grey);
     margin: 5px;
     border: thin solid black;
     overflow: hidden;
@@ -16,6 +16,7 @@
     font-size: 30px;
     transform-style: preserve-3d;
     position: relative;
+    box-shadow: 12px 0 20px -4px grey, -12px 0 20px -4px grey;
 }
 
 #ring-1 {
@@ -47,5 +48,6 @@
 
 .carousel__cell {
     position: absolute;
-    left: 10px;
+    width: 100%;
+    height: 100%;
 }
