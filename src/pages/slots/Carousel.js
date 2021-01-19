@@ -1,15 +1,17 @@
 import React from 'react'
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const numbers = ["🍒", "🥭", "🍊", "🍓", "🍇"];
 
-function Carousel() {
+function Carousel(props) {
     return (
-        <div className="slot">
-            {
-                numbers.map((num) =>
-                    <div className="carousel__cell">{num}</div>
-                )
-            }
+        <div className="slot" >
+            <div id={`ring-${props.ringId}`}>
+                {
+                    numbers.map((num, i) =>
+                        <div key={num} className="carousel__cell" style={{ transform: `rotateX(${i * (360 / numbers.length)}deg) translateZ(150px)` }}><p>{num}</p></div>
+                    )
+                }
+            </div>
         </div>
     )
 }
