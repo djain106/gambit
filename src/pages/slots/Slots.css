@@ -1,0 +1,13 @@
+.machine {
+    display: flex;
+}
+
+.slot {
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(0.5turn, black 0% 1%, white 30% 70%, black 99% 100%);
+    margin: 5px;
+    border: thin solid black;
+    overflow: hidden;
+    text-align: center;
+}
