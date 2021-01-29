@@ -2,16 +2,15 @@
     display: flex;
     transform-style: preserve-3d;
     perspective: 0;
-    /* -webkit-perspective: 800; */
 }
 
 .slot {
     width: 75px;
-    height: 75px;
+    height: 300px;
     background: linear-gradient(0.5turn, grey, white 30% 70%, grey);
     margin: 5px;
     border: thin solid black;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-align: center;
     font-size: 30px;
     transform-style: preserve-3d;
@@ -21,7 +20,33 @@
 
 #ring-1 {
     animation-name: x-spin;
-    animation-duration: 2s;
+    animation-duration: 5s;
+    -webkit-animation-name: x-spin;
+    -webkit-animation-duration: 5s;
+    transform-style: preserve-3d;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-transform-style: preserve-3d;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+#ring-2 {
+    animation-name: x-spin;
+    animation-duration: 5s;
+    -webkit-animation-name: x-spin;
+    -webkit-animation-duration: 5s;
+    transform-style: preserve-3d;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-transform-style: preserve-3d;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+#ring-3 {
+    animation-name: x-spin;
+    animation-duration: 5s;
     -webkit-animation-name: x-spin;
     -webkit-animation-duration: 5s;
     transform-style: preserve-3d;
@@ -50,4 +75,5 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    border: solid thin black;
 }
